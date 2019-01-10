@@ -721,7 +721,7 @@ int32 USpatialNetDriver::ServerReplicateActors_ProcessPrioritizedActors(UNetConn
 				for (auto& ClientConnection : ClientConnections)
 				{
 					Channel = Cast<USpatialActorChannel>(ClientConnection->ActorChannelMap().FindRef(Actor));
-					if (Channel)
+					if (Channel != nullptr)
 					{
 						break;
 					}
