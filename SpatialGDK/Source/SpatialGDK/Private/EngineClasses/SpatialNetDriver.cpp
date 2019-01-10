@@ -717,7 +717,7 @@ int32 USpatialNetDriver::ServerReplicateActors_ProcessPrioritizedActors(UNetConn
 			// then search through all the connections to find the actor's channel.
 			if (Channel == nullptr)
 			{
-				for (int32 ConnIdx = 0; ConnIdx < ClientConnections.Num(); ConnIdx++)
+				for (auto& ClientConnection : ClientConnections)
 				{
 					Channel = Cast<USpatialActorChannel>(ClientConnections[ConnIdx]->ActorChannelMap().FindRef(Actor));
 					if (Channel)
