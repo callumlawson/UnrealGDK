@@ -99,7 +99,7 @@ void USpatialActorChannel::DeleteEntityIfAuthoritative()
 		// Temporary hack to delay the delete entity request if tearing off.
 		if (Actor->GetTearOff())
 		{
-			NetDriver->DelayedSendDeleteEntityRequest(EntityId, 1);
+			NetDriver->DelayedSendDeleteEntityRequest(EntityId, 1.0f);
 		}
 		else
 		{
