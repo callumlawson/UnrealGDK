@@ -713,8 +713,9 @@ int32 USpatialNetDriver::ServerReplicateActors_ProcessPrioritizedActors(UNetConn
 			AActor* Actor = PriorityActors[j]->ActorInfo->Actor;
 			bool bIsRelevant = false;
 
-			// If the actor channel can't be found in the current connection (e.g. if the actor was detached from the controller),
+			// Workaround: If the actor channel can't be found in the current connection (e.g. if the actor was detached from the controller),
 			// then search through all the connections to find the actor's channel.
+			// Task to improve this: https://improbableio.atlassian.net/browse/UNR-842
 			if (Channel == nullptr)
 			{
 				for (auto& ClientConnection : ClientConnections)

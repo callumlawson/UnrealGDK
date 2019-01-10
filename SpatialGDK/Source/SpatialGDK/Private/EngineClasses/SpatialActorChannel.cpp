@@ -97,6 +97,7 @@ void USpatialActorChannel::DeleteEntityIfAuthoritative()
 	if (bHasAuthority && !IsSingletonEntity())
 	{
 		// Temporary hack to delay the delete entity request if tearing off.
+		// Task to improve this: https://improbableio.atlassian.net/browse/UNR-841
 		if (Actor->GetTearOff())
 		{
 			NetDriver->DelayedSendDeleteEntityRequest(EntityId, 1.0f);
